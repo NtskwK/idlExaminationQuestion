@@ -1,0 +1,103 @@
+;read file line by line
+FUNCTION print_line
+  ;get filepath
+  ;fp = 'D:\JRY\IDL\demo_03\data2023\ascii.txt'
+  fp = DIALOG_PICKFILE($
+    title = '读取ascii.txt',$
+    filter = '*.txt',$
+    path = FILE_DIRNAME(ROUTINE_FILEPATH('READASCIIFILE')))
+
+  ;open file
+  OPENR,lun,fp,/get_lun
+  IF lun EQ -1 THEN BEGIN
+    msg = DIALOG_MESSAGE('IO ERROR!',/error)
+    return,-1
+  ENDIF
+
+  ;read file line by line
+  tmp = ''
+  WHILE ( ~EOF(lun)) DO BEGIN
+    readf,lun,tmp
+    print,tmp
+  ENDWHILE
+
+  ;关闭文件
+  free_lun,lun
+end 
+
+FUNCTION print_ascii_data
+  fp = DIALOG_PICKFILE($
+    title = '读取ascii.txt',$
+    filter = '*.txt',$
+    path = FILE_DIRNAME(ROUTINE_FILEPATH('READASCIIFILE')))
+
+  openr,lun,fp,/get_lun
+  meta = intarr(3)
+  readf,lun,meta
+  str = strarr(2)
+  readf,lun,str
+  data = FLTARR(meta(0),meta(1))
+  readf,lun,data
+  print,data
+  free_lun,lun
+  RETURN,data
+END
+
+function read_asc_data
+  fp = DIALOG_PICKFILE($
+    title = '读取dsm.asc',$
+    filter = '*.asc',$
+    path = FILE_DIRNAME(ROUTINE_FILEPATH('READASCIIFILE')))
+  openr,lun,fp,/get_lun
+  info = strarr(6)
+  readf,lun,info
+  meta = HASH()
+  FOR index = 0, size(info,/N_Elements) - 1 DO BEGIN
+    temp = meta(index)
+    msg = STRSPLIT(temp)
+    meta[msg(0)]=msg(1)
+  ENDFOR
+  print,msg
+  data = FLTARR(meta(0),meta(1))
+  readf,lun,data
+  print,data
+  free_lun,lun
+  RETURN,data
+end
+
+pro fileio
+  ;format = '([n][*FC][+][-][width])'
+  ;执行三次，左对齐，十进制数，（空格补齐）占6位
+  print,format = '(3i6)',[0,2,10]
+  ;     0     2    10
+  ;执行三次，右对齐，十进制数，（0补齐）占3位
+  print,format = '(3i03)',[-1,2,1]
+  ;-01002001
+  ;左对齐，字符串格式化输出，占4位（空格补齐，有多余的则去除）
+  print,format = '(2a-4)',['ab','abcdef']
+  ;ab  abcd
+  ;十进制数，（空格补齐）占3位，太长的显示为`***`
+  print,format = '(i3)',[-1,222,1111]
+  ;-1
+  ;222
+  ;***
+  ;width=0则按原样输出
+  print,format = '(i0)',[-1,222,1111]
+  ;-1
+  ;222
+  ;1111
+  
+  ;data = print_ascii_data()
+  ;plot,data[1,*]
+  
+  ;reads自动切割读取字符串
+  str = '1 2 3 4 5'
+  a = 0
+  b = 0
+  s = ''
+  reads,str,a,b,s
+  print,s
+  ; 3 4 5
+  
+  data = read_asc_data()
+end

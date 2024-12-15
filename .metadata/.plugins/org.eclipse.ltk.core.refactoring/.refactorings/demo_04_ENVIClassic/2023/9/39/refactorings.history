@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="将资源“demo_04_ENVIClassic/classica.pro”重命名为“classical.pro”" description="重命名资源“classica.pro”" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="classica.pro" name="classical.pro" stamp="1695818585170" updateReferences="true"/>
+</session>

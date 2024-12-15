@@ -1,0 +1,10 @@
+pro nmsl
+  fp_hdr = 'E:\Documents\2023IDL\data2023\bhtmref.hdr'
+  tmp = STRSPLIT(fp_hdr, ".",/EXTRACT)
+  fp_dat = tmp[0] + ".dat"
+  fp_img = tmp[0] + ".img"
+
+    e = envi()
+    raster = e.OpenRaster(DIALOG_PICKFILE())
+  
+end

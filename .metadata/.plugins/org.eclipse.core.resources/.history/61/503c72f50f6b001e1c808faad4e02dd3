@@ -1,0 +1,96 @@
+function get_meta,fp
+   OPENR, lun, fp, /GET_LUN
+   IF lun EQ -1 THEN BEGIN
+     PRINT, "文件打开失败"
+   ENDIF ELSE BEGIN
+     ;PRINT, "文件打开成功"
+     line = ""
+     header = HASH()
+     WHILE not eof(lun) DO BEGIN
+        READF, lun, line
+        IF (STRPOS(line, "=") GT 0) and (STRPOS(line, "{") eq -1) THEN BEGIN
+            tmp = STRSPLIT(line, "=",/EXTRACT)
+            new_str = strtrim(tmp[0], 2)
+            key = new_str
+            new_str = strtrim(tmp[1], 2)
+            value = new_str
+            header[key] = value
+            ;PRINT,key,"=",value
+        endif
+        tmp = STRSPLIT(fp, ".",/EXTRACT)
+        header["file name"] = tmp[0] + ".dat" 
+     end 
+     FREE_LUN, lun
+     return,header
+   END
+   
+   
+END
+
+FUNCTION zhuanzhi_2,data
+    tmp = SIZE(data)
+    x=tmp[1] 
+    y=tmp[2]
+    new_data = INTARR(y,x)
+    FOR i = 0, x-1 DO BEGIN
+        FOR j = 0, y-1 DO BEGIN
+            new_data[i,j]=data[j,i]
+        ENDFOR
+    ENDFOR
+    return, new_data
+END
+
+FUNCTION get_data,header
+  fp = header["file name"]
+  OPENU, lun, fp, /GET_LUN
+  IF lun EQ -1 THEN BEGIN
+    PRINT, "文件打开失败"
+  ENDIF ELSE BEGIN
+    ;PRINT, "文件打开成功"
+    
+    ; 读取二进制文件头信息
+    dtype = header['data type']
+    n_bands = FLOAT(header['bands'])
+    samples = FLOAT(header['samples'])
+    lines = FLOAT(header['lines'])
+    
+    ; 获取文件大小
+    dsize = size(dtype,/type)
+    bytes_per_pixel = n_bands * dsize
+    file_size = samples * lines * bytes_per_pixel
+    
+    ; 读取图像数据
+    dtype = FIX(dtype)
+    data = bytarr(samples,lines)
+    readu, lun, data
+   
+
+    
+    ; 显示图像
+    window, 0, xsize=samples, ysize=lines,/FREE
+    TV, data
+        
+    free_lun, lun;     
+    RETURN,data    
+  END
+  return, -1
+END
+
+
+
+FUNCTION output_tiff,data
+    fp='E:\Documents\2023IDL\data2023\bhtmref.tif'
+    WRITE_TIFF,fp,data
+    return, 1
+END
+
+
+PRO read_data
+    fp_hdr = 'E:\Documents\2023IDL\data2023\bhtmref.hdr'
+    tmp = STRSPLIT(fp_hdr, ".",/EXTRACT)
+    fp_img = tmp + ".img"
+    header =  get_meta(fp_hdr)
+    img = get_data(header)   
+    res = output_tiff(img)
+    print,"ok!"
+END

@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="将资源“KaoCha_1/kaocha_1”重命名为“kaocha_1.pro”" description="重命名资源“kaocha_1”" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="kaocha_1" name="kaocha_1.pro" stamp="1695207209062" updateReferences="true"/>&#x0A;<refactoring comment="将资源“KaoCha_1/kaocha_1.pro”重命名为“tm_1.pro”" description="重命名资源“kaocha_1.pro”" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="kaocha_1.pro" name="tm_1.pro" stamp="1695207784909" updateReferences="true"/>
+</session>

@@ -1,0 +1,31 @@
+FUNCTION VegEnhanceJRY, b1, b2,b3
+
+    den = (b2 + 6*float(b1) - 7.5*b3 + 1)
+    count = den
+
+    IF (den GT 0) THEN den[ptr] = 1.0
+
+    EVI = 2.5*(b2 - float(b1)) / den
+
+    IF (count GT 0) THEN EVI[ptr] = 0.0
+
+    RETURN, EVI
+
+END
+
+pro nmsl
+  fp_hdr = 'E:\Documents\2023IDL\data2023\bhtmref.hdr'
+  tmp = STRSPLIT(fp_hdr, ".",/EXTRACT)
+  fp_dat = tmp[0] + ".dat"
+  fp_img = tmp[0] + ".img"
+
+    e = envi()
+    raster = e.OpenRaster(DIALOG_PICKFILE())
+    b1 = data[*, *, 3]
+    b2 = data[*, *, 4]
+    b3 = data[*, *, 1]
+    evi = VegEnhanceJRY(b1, b2, b3)
+    
+    tv,evi
+  
+end

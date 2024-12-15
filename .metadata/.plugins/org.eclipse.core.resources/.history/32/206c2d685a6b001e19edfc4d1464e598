@@ -1,0 +1,18 @@
+
+
+pro nmsl
+  fp_hdr = 'E:\Documents\2023IDL\data2023\bhtmref.hdr'
+  tmp = STRSPLIT(fp_hdr, ".",/EXTRACT)
+  fp_dat = tmp[0] + ".dat"
+  fp_img = tmp[0] + ".img"
+
+    e = envi()
+    raster = e.OpenRaster(DIALOG_PICKFILE())
+    b1 = raster.GetData(band=3)
+    b2 = raster.GetData(band=4)
+    b3 = raster.GetData(band=1)
+    evi = VegEnhanceJRY(b1, b2, b3)
+    
+    tv,evi
+  
+end

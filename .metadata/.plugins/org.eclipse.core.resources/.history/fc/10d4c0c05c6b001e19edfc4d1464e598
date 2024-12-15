@@ -1,0 +1,15 @@
+
+
+pro nmsl
+    ;work_dir = dialog_pickfile(title='选择路径',/DIRECTORY)   ;手动选择文件路径
+    ;file_list = file_search('*.dat', count=file_nums)   ;搜寻路径中后缀为...的文件集合，接着可以用fn[i]进行遍历操作
+    
+    fname = envi_pickfile(/multiple_file,title='select images') ;打开图形对话框选择文件名
+    fid = envi_open_data_file(fname,r_fid,/ENVI);在ENVI中打开ENVI支持的外部格式文件，并返回fid号
+    
+    ;数据读取
+    result = raster.GetData(BANDS=[0]);读取一个波段数据
+    ;result = envi_get_slice(fid=file id, line=integer, pos=array,xs=value,xe=value,[/bil][,bip]) ;从打开的ENVI文件中读取一行的数
+    img = read_image(fn) ;读取图像，结果为图像数组
+    data = e.OpenRaster(fn) ;要打开envi使用，来读取数据
+end

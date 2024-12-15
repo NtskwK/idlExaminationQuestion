@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="将 1 个资源移至“demo_02”" description="将 1 个资源移至“demo_02”" destination="/demo_02" element1="/demo_01/demo.pro" flags="7" id="org.eclipse.ltk.core.refactoring.move.resources" resources="1" stamp="1694006081700" updateReferences="true"/>&#x0A;<refactoring comment="将资源“demo_02/demo.pro”重命名为“demo_02.pro”" description="重命名资源“demo.pro”" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="demo.pro" name="demo_02.pro" stamp="1694006089926" updateReferences="true"/>
+</session>

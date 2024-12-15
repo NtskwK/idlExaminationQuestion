@@ -1,0 +1,11 @@
+
+
+pro nmsl
+    e = envi() 
+    ;要打开envi使用，来读取数据
+    ENVI_SELECT()
+    raster = e.OpenRaster() 
+    
+    QUACImage = ENVIQUACRaster(raster)
+    print,data
+end

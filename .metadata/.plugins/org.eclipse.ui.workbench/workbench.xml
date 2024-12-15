@@ -1,0 +1,382 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workbench version="2.0">
+<workbenchAdvisor/>
+<window height="867" maximized="true" width="814" x="-7" y="0">
+<fastViewData fastViewLocation="1024">
+<orientation position="512" view="com.rsi.idldt.ui.views.CommandHistoryView"/>
+<orientation position="512" view="org.eclipse.debug.ui.DebugView"/>
+</fastViewData>
+<perspectiveBar>
+<itemSize x="0"/>
+</perspectiveBar>
+<coolbarLayout>
+<coolItem id="org.eclipse.ui.workbench.file" itemType="typeToolBarContribution" x="211" y="56"/>
+<coolItem id="com.rsi.idldt.ui.textedit.toolbar" itemType="typeToolBarContribution" x="288" y="56"/>
+<coolItem id="com.rsi.idldt.ui.toolbar.debugTools" itemType="typeToolBarContribution" x="458" y="56"/>
+</coolbarLayout>
+<page aggregateWorkingSetId="Aggregate for window 1693996109408" focus="true" label="工作空间 － IDL">
+<editors>
+<editorArea activeWorkbook="DefaultEditorWorkbook">
+<info part="DefaultEditorWorkbook">
+<folder appearance="1" expanded="2">
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+<part id="1"/>
+<part id="2"/>
+<part id="3"/>
+<part id="4"/>
+<part id="5"/>
+</presentation>
+</folder>
+</info>
+</editorArea>
+<editor id="com.rsi.idldt.proeditor.ProEditor" name="fileio.pro" partName="fileio.pro" path="D:/JRY/IDL/demo_03/fileio.pro" title="fileio.pro" tooltip="demo_03/fileio.pro" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/demo_03/fileio.pro"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="2586" selectionTopPixel="1791"/>
+</editor>
+<editor id="org.eclipse.ui.DefaultTextEditor" name="ascii.txt" partName="ascii.txt" path="D:/JRY/IDL/demo_03/data2023/ascii.txt" title="ascii.txt" tooltip="demo_03/data2023/ascii.txt" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/demo_03/data2023/ascii.txt"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="139" selectionTopPixel="0"/>
+</editor>
+<editor id="com.rsi.idldt.proeditor.ProEditor" name="demo_02.pro" partName="demo_02.pro" path="D:/JRY/IDL/demo_02/demo_02.pro" title="demo_02.pro" tooltip="demo_02/demo_02.pro" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/demo_02/demo_02.pro"/>
+<editorState selectionHorizontalPixel="0" selectionLength="77" selectionOffset="4139" selectionTopPixel="3960"/>
+</editor>
+<editor id="org.eclipse.ui.DefaultTextEditor" name="can_tmr.hdr" partName="can_tmr.hdr" path="D:/JRY/IDL/demo_03/data2023/can_tmr.hdr" title="can_tmr.hdr" tooltip="demo_03/data2023/can_tmr.hdr" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/demo_03/data2023/can_tmr.hdr"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="234" selectionTopPixel="0"/>
+</editor>
+<editor activePart="true" focus="true" id="com.rsi.idldt.proeditor.ProEditor" name="compute_ndvi.pro" partName="compute_ndvi.pro" path="D:/JRY/IDL/demo_04_ENVIClassic/compute_ndvi.pro" title="compute_ndvi.pro" tooltip="demo_04_ENVIClassic/compute_ndvi.pro" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/demo_04_ENVIClassic/compute_ndvi.pro"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="88" selectionTopPixel="0"/>
+</editor>
+<editor id="com.rsi.idldt.proeditor.ProEditor" name="envi5x.pro" partName="envi5x.pro" title="envi5x.pro" tooltip="D:\JRY\IDL\demo_04_ENVIClassic\envi5x.pro" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" uri="file:/D:/JRY/IDL/demo_04_ENVIClassic/envi5x.pro"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="276" selectionTopPixel="0"/>
+</editor>
+</editors>
+<views>
+<view id="org.eclipse.ui.navigator.ProjectExplorer" partName="项目资源管理器">
+<viewState CommonNavigator.LINKING_ENABLED="0" org.eclipse.ui.navigator.resources.workingSets.showTopLevelWorkingSets="0"/>
+</view>
+<view id="com.rsi.idldt.ui.views.CommandHistoryView" partName="历史命令">
+<viewState columnWidth0="200" grp200="1" showTreeView="1" sortColumn="1" sortDirection="128"/>
+</view>
+<view id="com.rsi.idldt.console.IDLConsoleView" partName="IDL控制台">
+<viewState/>
+</view>
+<view id="org.eclipse.debug.ui.DebugView" partName="调试">
+<viewState/>
+</view>
+<view id="org.eclipse.ui.views.ProblemView" partName="问题">
+<viewState PRIMARY_SORT_FIELD="org.eclipse.ui.ide.severityAndDescriptionField" categoryGroup="org.eclipse.ui.ide.severity" markerContentGenerator="org.eclipse.ui.ide.problemsGenerator" partName="问题">
+<expanded>
+<category IMemento.internal.id="警告（第 100 项，共 308 项）"/>
+</expanded>
+<columnWidths org.eclipse.ui.ide.locationField="90" org.eclipse.ui.ide.markerType="90" org.eclipse.ui.ide.pathField="120" org.eclipse.ui.ide.resourceField="90" org.eclipse.ui.ide.severityAndDescriptionField="686"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.severityAndDescriptionField"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.resourceField"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.pathField"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.locationField"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.markerType"/>
+</viewState>
+</view>
+<view id="org.eclipse.debug.ui.VariableView" partName="变量查看器">
+<viewState/>
+</view>
+<view id="org.eclipse.help.ui.HelpView" partName="Help">
+<viewState pageId="context-help-page"/>
+</view>
+<view id="org.eclipse.ui.views.ContentOutline" partName="大纲"/>
+</views>
+<perspectives activePart="com.rsi.idldt.proeditor.ProEditor" activePerspective="com.rsi.idldt.ui.IDLPerspective">
+<perspective editorAreaTrimState="2" editorAreaVisible="1" fixed="0" version="0.016">
+<descriptor class="com.rsi.idldt.internal.ui.IDLPerspectiveFactory" id="com.rsi.idldt.ui.IDLPerspective" label="IDL"/>
+<alwaysOnActionSet id="com.rsi.idldt.ui.actionSets.CmdLine"/>
+<alwaysOnActionSet id="com.rsi.idldt.ui.actionSets.Run"/>
+<alwaysOnActionSet id="com.rsi.idldt.ui.actionSets.Wizard"/>
+<alwaysOnActionSet id="com.rsi.idldt.ui.actionSets.Help"/>
+<alwaysOnActionSet id="com.rsi.idldt.ui.MacroActionSet"/>
+<alwaysOnActionSet id="com.rsi.idldt.tasks.actionSets.Wizard"/>
+<alwaysOnActionSet id="org.eclipse.ui.cheatsheets.actionSet"/>
+<alwaysOnActionSet id="org.eclipse.search.searchActionSet"/>
+<alwaysOnActionSet id="org.eclipse.ui.edit.text.actionSet.annotationNavigation"/>
+<alwaysOnActionSet id="org.eclipse.ui.edit.text.actionSet.navigation"/>
+<alwaysOnActionSet id="org.eclipse.ui.edit.text.actionSet.convertLineDelimitersTo"/>
+<alwaysOnActionSet id="org.eclipse.ui.actionSet.keyBindings"/>
+<alwaysOnActionSet id="org.eclipse.ui.actionSet.openFiles"/>
+<alwaysOnActionSet id="org.eclipse.ui.NavigateActionSet"/>
+<alwaysOnActionSet id="org.eclipse.debug.ui.breakpointActionSet"/>
+<alwaysOnActionSet id="com.rsi.idldt.ui.CodingActionSet"/>
+<alwaysOnActionSet id="org.eclipse.debug.ui.debugActionSet"/>
+<show_view_action id="org.eclipse.search.ui.views.SearchView"/>
+<show_view_action id="org.eclipse.ui.views.ProblemView"/>
+<show_view_action id="org.eclipse.ui.views.TaskList"/>
+<show_view_action id="org.eclipse.ui.views.BookmarkView"/>
+<hide_toolbar_item_id id="org.eclipse.ui.edit.text.toggleShowSelectedElementOnly"/>
+<view id="com.rsi.idldt.console.IDLConsoleView"/>
+<view id="org.eclipse.ui.views.ProblemView"/>
+<view id="org.eclipse.ui.navigator.ProjectExplorer"/>
+<view id="org.eclipse.ui.views.ContentOutline"/>
+<view id="org.eclipse.debug.ui.VariableView"/>
+<fastViews>
+<view id="org.eclipse.debug.ui.DebugView" ratio="0.29934642"/>
+<view id="com.rsi.idldt.ui.views.CommandHistoryView" ratio="0.29934642"/>
+</fastViews>
+<fastViewBars>
+<fastViewBar fastViewLocation="131072" id="stickyFolderRight" orientation="512" selectedTabId="org.eclipse.help.ui.HelpView" style="0">
+<fastViews>
+<view id="org.eclipse.help.ui.HelpView" ratio="0.3"/>
+</fastViews>
+</fastViewBar>
+</fastViewBars>
+<layout>
+<mainWindow>
+<info folder="true" part="left">
+<folder activePageID="org.eclipse.ui.navigator.ProjectExplorer" appearance="2" expanded="2">
+<page content="org.eclipse.ui.navigator.ProjectExplorer" label="项目资源管理器"/>
+<page content="org.eclipse.ui.views.ContentOutline" label="大纲"/>
+<page content="org.eclipse.debug.ui.VariableView" label="变量查看器"/>
+<page content="org.eclipse.ui.views.ResourceNavigator" label="LabelNotFound"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+<part id="1"/>
+<part id="2"/>
+</presentation>
+</folder>
+</info>
+<info folder="true" part="stickyFolderRight" ratio="0.75" ratioLeft="750" ratioRight="250" relationship="2" relative="left">
+<folder appearance="2" expanded="2">
+<page content="org.eclipse.help.ui.HelpView" label="LabelNotFound"/>
+<page content="org.eclipse.ui.internal.introview" label="LabelNotFound"/>
+<page content="org.eclipse.ui.cheatsheets.views.CheatSheetView" label="LabelNotFound"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
+</folder>
+</info>
+<info part="com.rsi.idldt.HierarchyView" ratio="0.7" ratioLeft="700" ratioRight="300" relationship="2" relative="left"/>
+<info folder="true" part="bottom" ratio="0.5714286" ratioLeft="260" ratioRight="195" relationship="4" relative="left">
+<folder activePageID="com.rsi.idldt.console.IDLConsoleView" appearance="2" expanded="2">
+<page content="com.rsi.idldt.console.IDLConsoleView" label="IDL控制台"/>
+<page content="org.eclipse.ui.views.ProblemView" label="问题"/>
+<page content="com.rsi.idldt.ui.views.CommandHistoryView" label="LabelNotFound"/>
+<page content="org.eclipse.search.ui.views.SearchView" label="LabelNotFound"/>
+<page content="org.eclipse.debug.ui.BreakpointView" label="LabelNotFound"/>
+<page content="*" label="LabelNotFound"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+<part id="1"/>
+</presentation>
+</folder>
+</info>
+<info part="org.eclipse.ui.editorss" ratio="0.34434563" ratioLeft="271" ratioRight="516" relationship="2" relative="left"/>
+</mainWindow>
+</layout>
+</perspective>
+</perspectives>
+<workingSets/>
+<navigationHistory>
+<editors>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.rsi.idldt.proeditor.ProEditor" path="/demo_03/fileio.pro"/>
+<editor factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.rsi.idldt.proeditor.ProEditor" uri="file:/D:/JRY/IDL/demo_04_ENVIClassic/classica.pro"/>
+<editor factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.rsi.idldt.proeditor.ProEditor" uri="file:/C:/Program%20Files/Exelis/IDL85/lib/graphics/graphic_error.pro"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.rsi.idldt.proeditor.ProEditor" path="/demo_04_ENVIClassic/compute_ndvi.pro"/>
+</editors>
+<item historyLabel="fileio.pro" index="0">
+<position info="not_deleted" x="2581" y="0"/>
+</item>
+<item historyLabel="fileio.pro" index="0">
+<position info="not_deleted" x="2323" y="0"/>
+</item>
+<item historyLabel="fileio.pro" index="0">
+<position info="not_deleted" x="2696" y="0"/>
+</item>
+<item historyLabel="fileio.pro" index="0">
+<position info="not_deleted" x="2323" y="0"/>
+</item>
+<item historyLabel="fileio.pro" index="0">
+<position/>
+</item>
+<item historyLabel="fileio.pro" index="0">
+<position info="not_deleted" x="2459" y="0"/>
+</item>
+<item historyLabel="fileio.pro" index="0">
+<position info="not_deleted" x="2525" y="0"/>
+</item>
+<item historyLabel="fileio.pro" index="0">
+<position info="not_deleted" x="2459" y="0"/>
+</item>
+<item historyLabel="fileio.pro" index="0">
+<position info="not_deleted" x="2525" y="0"/>
+</item>
+<item historyLabel="fileio.pro" index="0">
+<position info="not_deleted" x="2459" y="0"/>
+</item>
+<item historyLabel="fileio.pro" index="0">
+<position info="not_deleted" x="2390" y="0"/>
+</item>
+<item historyLabel="fileio.pro" index="0">
+<position info="not_deleted" x="2588" y="0"/>
+</item>
+<item historyLabel="fileio.pro" index="0">
+<position info="not_deleted" x="2519" y="0"/>
+</item>
+<item historyLabel="fileio.pro" index="0">
+<position info="not_deleted" x="2588" y="0"/>
+</item>
+<item historyLabel="fileio.pro" index="0">
+<position info="not_deleted" x="2474" y="0"/>
+</item>
+<item historyLabel="fileio.pro" index="0">
+<position info="not_deleted" x="2588" y="0"/>
+</item>
+<item historyLabel="fileio.pro" index="0">
+<position info="not_deleted" x="2457" y="0"/>
+</item>
+<item historyLabel="fileio.pro" index="0">
+<position info="not_deleted" x="2588" y="0"/>
+</item>
+<item historyLabel="fileio.pro" index="0">
+<position info="not_deleted" x="2405" y="0"/>
+</item>
+<item historyLabel="fileio.pro" index="0">
+<position info="not_deleted" x="2588" y="0"/>
+</item>
+<item historyLabel="fileio.pro" index="0">
+<position info="not_deleted" x="2323" y="0"/>
+</item>
+<item historyLabel="fileio.pro" index="0">
+<position info="not_deleted" x="2385" y="0"/>
+</item>
+<item historyLabel="fileio.pro" index="0">
+<position info="not_deleted" x="2588" y="0"/>
+</item>
+<item historyLabel="fileio.pro" index="0">
+<position info="not_deleted" x="2278" y="0"/>
+</item>
+<item historyLabel="fileio.pro" index="0">
+<position info="not_deleted" x="2297" y="0"/>
+</item>
+<item historyLabel="fileio.pro" index="0">
+<position info="not_deleted" x="2323" y="0"/>
+</item>
+<item historyLabel="fileio.pro" index="0">
+<position info="not_deleted" x="2588" y="0"/>
+</item>
+<item historyLabel="fileio.pro" index="0">
+<position info="not_deleted" x="2405" y="0"/>
+</item>
+<item historyLabel="fileio.pro" index="0">
+<position info="not_deleted" x="2586" y="0"/>
+</item>
+<item historyLabel="classica.pro" index="1">
+<position/>
+</item>
+<item historyLabel="classica.pro" index="1">
+<position/>
+</item>
+<item historyLabel="graphic_error.pro" index="2">
+<position info="not_deleted" x="198" y="0"/>
+</item>
+<item historyLabel="classica.pro" index="1">
+<position/>
+</item>
+<item historyLabel="fileio.pro" index="0">
+<position info="not_deleted" x="2586" y="0"/>
+</item>
+<item historyLabel="classica.pro" index="1">
+<position/>
+</item>
+<item historyLabel="classica.pro" index="1">
+<position/>
+</item>
+<item historyLabel="classica.pro" index="1">
+<position/>
+</item>
+<item historyLabel="classica.pro" index="1">
+<position/>
+</item>
+<item historyLabel="classica.pro" index="1">
+<position/>
+</item>
+<item historyLabel="classica.pro" index="1">
+<position/>
+</item>
+<item historyLabel="classica.pro" index="1">
+<position/>
+</item>
+<item historyLabel="classica.pro" index="1">
+<position/>
+</item>
+<item historyLabel="classica.pro" index="1">
+<position/>
+</item>
+<item historyLabel="compute_ndvi.pro" index="3">
+<position info="not_deleted" x="88" y="0"/>
+</item>
+<item active="true" historyLabel="compute_ndvi.pro" index="3">
+<position info="not_deleted" x="88" y="0"/>
+</item>
+</navigationHistory>
+<input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
+</page>
+<workbenchWindowAdvisor/>
+<actionBarAdvisor/>
+<trimLayout>
+<trimArea IMemento.internal.id="131072">
+<trimItem IMemento.internal.id="stickyFolderRight"/>
+</trimArea>
+<trimArea IMemento.internal.id="128">
+<trimItem IMemento.internal.id="org.eclipse.ui.internal.WorkbenchWindow.topBar"/>
+</trimArea>
+<trimArea IMemento.internal.id="1024">
+<trimItem IMemento.internal.id="org.eclise.ui.internal.FastViewBar"/>
+<trimItem IMemento.internal.id="org.eclipse.jface.action.StatusLineManager"/>
+<trimItem IMemento.internal.id="org.eclipse.ui.internal.progress.ProgressRegion"/>
+</trimArea>
+</trimLayout>
+</window>
+<mruList>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.rsi.idldt.savfile.runner" name="compute_ndvi.sav" tooltip="demo_04_ENVIClassic/compute_ndvi.sav">
+<persistable path="/demo_04_ENVIClassic/compute_ndvi.sav"/>
+</file>
+<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.rsi.idldt.proeditor.ProEditor" name="image.pro" tooltip="C:\Program Files\Exelis\IDL85\lib\graphics\image.pro">
+<persistable uri="file:/C:/Program%20Files/Exelis/IDL85/lib/graphics/image.pro"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.DefaultTextEditor" name="FY2C_TBB_IR1_OTG_20061130_AOAD.AWX" tooltip="demo_03/data2023/FY2C_TBB_IR1_OTG_20061130_AOAD.AWX">
+<persistable path="/demo_03/data2023/FY2C_TBB_IR1_OTG_20061130_AOAD.AWX"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.DefaultTextEditor" name="can_tmr.hdr" tooltip="demo_03/data2023/can_tmr.hdr">
+<persistable path="/demo_03/data2023/can_tmr.hdr"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.rsi.idldt.proeditor.ProEditor" name="demo_02.pro" tooltip="demo_02/demo_02.pro">
+<persistable path="/demo_02/demo_02.pro"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.DefaultTextEditor" name="DSM.asc" tooltip="demo_03/data2023/DSM.asc">
+<persistable path="/demo_03/data2023/DSM.asc"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.DefaultTextEditor" name="ascii.txt" tooltip="demo_03/data2023/ascii.txt">
+<persistable path="/demo_03/data2023/ascii.txt"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.rsi.idldt.proeditor.ProEditor" name="fun_var_show.pro" tooltip="demo_01/fun_var_show.pro">
+<persistable path="/demo_01/fun_var_show.pro"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.rsi.idldt.proeditor.ProEditor" name="demo_01.pro" tooltip="demo_01/demo_01.pro">
+<persistable path="/demo_01/demo_01.pro"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.rsi.idldt.proeditor.ProEditor" name="fun_main.pro" tooltip="demo_01/fun_main.pro">
+<persistable path="/demo_01/fun_main.pro"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.rsi.idldt.proeditor.ProEditor" name="demo.pro" tooltip="demo_01/demo.pro">
+<persistable path="/demo_01/demo.pro"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.rsi.idldt.proeditor.ProEditor" name="demo_01.pro" tooltip="demo/demo_01.pro">
+<persistable path="/demo/demo_01.pro"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.rsi.idldt.proeditor.ProEditor" name="fun_main.pro" tooltip="demo/fun_main.pro">
+<persistable path="/demo/fun_main.pro"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.rsi.idldt.proeditor.ProEditor" name="demo.pro" tooltip="demo/demo.pro">
+<persistable path="/demo/demo.pro"/>
+</file>
+</mruList>
+</workbench>

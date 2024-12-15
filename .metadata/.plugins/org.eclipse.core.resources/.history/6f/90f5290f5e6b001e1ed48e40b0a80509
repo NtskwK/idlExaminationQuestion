@@ -1,0 +1,8 @@
+
+
+pro nmsl
+    e = envi() 
+    ;要打开envi使用，来读取数据
+    data = e.OpenRaster(envi_pickfile(/multiple_file,title='select images')) 
+    print,data
+end

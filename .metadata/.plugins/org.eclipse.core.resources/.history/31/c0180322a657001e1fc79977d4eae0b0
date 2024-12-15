@@ -1,0 +1,13 @@
+FUNCTION read_meta_data
+  ;打开头文件
+  fp = DIALOG_PICKFILE($
+    title = '读取头文件',$
+    filter = '*.hdr')
+  meta = ENVIRaster(fp)
+  return,meta
+END
+
+PRO kaocha_1
+  envi , /headless , /RESTORE_BASE_SAVE_FILES
+  img =  read_envi_data()['filename']
+END

@@ -1,0 +1,36 @@
+FUNCTION read_meta_data
+  envi , /headless , /RESTORE_BASE_SAVE_FILES
+  ;打开头文件
+  ;fp = DIALOG_PICKFILE($title = '读取头文件',$filter = '*.hdr')
+  fp = 'D:\JRY\IDL\demo_03\data2023\can_tmr.hdr'
+  
+  openr,meta_lun,fp,/GET_LUN
+  line = ''
+  WHILE not eof(meta_lun) DO BEGIN
+    readf,meta_lun,line
+    info = STRSPLIT(line[0],'=',/EXTRACT) 
+    info = STRSPLIT(info,' ',/EXTRACT)
+    IF info[0] EQ 'samples' THEN x = info[1]
+    IF info[0] EQ 'lines'   THEN y = info[1]
+  ENDWHILE
+  reg = [x,y]
+  FREE_LUN,meta_lun
+  RETURN,reg
+END
+
+FUNCTION read_img_data,info
+  envi , /headless , /RESTORE_BASE_SAVE_FILES
+  fp = DIALOG_PICKFILE($
+    title = '读取头文件',$
+    filter = '*.img')
+  ignore = 0
+  data = ENVIRaster(fp)
+  return, data
+END
+
+
+PRO tm_1 
+  
+  reg =  read_meta_data()
+  PRINT,reg
+END

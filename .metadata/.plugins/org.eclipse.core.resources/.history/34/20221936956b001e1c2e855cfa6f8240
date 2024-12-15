@@ -1,0 +1,182 @@
+FUNCTION VegEnhanceJRY, b1,b2,b3
+    den = b2 + 6*FLOAT(b1) - 7.5*b3 + 1
+    count = den
+    IF(den EQ 0)THEN den = 1.0
+    EVI = 2.5*(b2- FLOAT(b1)) / den
+    IF(count EQ 0)THEN evi = 0.0
+    RETURN, EVI
+
+END
+
+FUNCTION compute_ndvi, b1, b2
+    IF (count GT 0) THEN den[ptr] = 1.0
+    result = (float(b1) + b2) / float(b1) - b2
+    IF (count GT 0) THEN result[ptr] = 0.0
+    RETURN, result
+END
+
+FUNCTION meta_data,fp,suffix
+    OPENR, lun, fp, /GET_LUN
+    IF lun EQ -1 THEN BEGIN
+        PRINT, "文件打开失败"
+    ENDIF ELSE BEGIN
+        ;PRINT, "文件打开成功"
+        line = ""
+        header = HASH()
+        WHILE NOT eof(lun) DO BEGIN
+            READF, lun, line
+            IF (STRPOS(line, "=") GT 0) AND (STRPOS(line, "{") EQ -1) THEN BEGIN
+                tmp = STRSPLIT(line, "=",/EXTRACT)
+                new_str = strtrim(tmp[0], 2)
+                key = new_str
+                new_str = strtrim(tmp[1], 2)
+                value = new_str
+                header[key] = value
+                ;PRINT,key,"=",value
+            ENDIF
+            tmp = STRSPLIT(fp, ".",/EXTRACT)
+            header["file name"] = tmp[0] + "." + suffix
+        END
+        FREE_LUN, lun
+        return,header
+    END
+END
+
+
+FUNCTION read_data,header
+    ; 读取二进制文件头信息
+    fp = header["file name"]
+    dtype = fix(header['data type'])
+    n_bands = uint(header['bands'])
+    samples = uint(header['samples'])
+    lines = uint(header['lines'])
+
+    data = UINTARR(n_bands,samples,lines)
+    OPENU, lun, fp, /GET_LUN
+    IF lun EQ -1 THEN BEGIN
+        PRINT, "文件打开失败"
+    ENDIF ELSE BEGIN
+        ;PRINT, "文件打开成功"
+
+        ; 读取图像数据
+        FOR index = 0, n_bands-1 DO BEGIN
+            band_data = bytarr(samples,lines)
+            readu, lun, band_data
+            data[index,*,*] = band_data[*,*]
+        ENDFOR
+        free_lun, lun;
+        RETURN,data
+    ENDELSE
+    return, -1
+END
+
+FUNCTION compute,data
+    COMPILE_OPT idl2
+    tmp = size(data)
+    b1 = bytarr(tmp[2],tmp[3])
+    b2 = bytarr(tmp[2],tmp[3])
+    b3 = bytarr(tmp[2],tmp[3])
+    b1[*,*] = data[2,*,*]
+    b2[*,*] = data[3,*,*]
+    b3[*,*] = data[0,*,*]
+    new_data = UINTARR(tmp[2],tmp[3])
+    FOR i = 0, tmp[2]-1 DO BEGIN
+        FOR j = 0, tmp[3]-1 DO BEGIN
+            new_data[i,j] = VegEnhanceJRY(b1[i,j],b2[i,j],b3[i,j])
+        ENDFOR
+    ENDFOR
+    return, new_data
+END
+
+
+FUNCTION putout_data,data,output_dir,file_name,task
+    ;不支持文件覆写
+    ;发生冲突时请先关闭 IDL 再手动删除已经存在的文件
+    COMPILE_OPT idl2
+    out_name = file_name + "_" + task + ".tif"
+    out_path = output_dir + '\' + out_name
+    result.Export,out_path, 'TIFF'
+    View = e.GetView()
+    Layer = View.CreateLayer(result) 
+    return,0
+END
+
+
+PRO kaocha_3
+    ;如果在e.OpenRaster  或者 ENVIQUACRaster 发生错误
+    ;你可能需要重置IDL环境并手动在控制台执行以下两行
+    ENVI,/RESTORE_BASE_SAVE_FILES
+    e=envi()
+   
+    
+    input_dir  = 'E:\CodeLearning\idl\in'
+    output_dir = 'E:\CodeLearning\idl\out'
+
+    ; 获取存储在 input_folder 中的所有图像文件
+    files = FILE_SEARCH(input_dir + '\' + '*.hdr',COUNT=n_files)
+
+    ; 循环遍历每个文件
+    FOR i=0, n_files-1 DO BEGIN
+        fp = files[i]
+        filename = FILE_BASENAME(fp)
+        ; 输出当前正在处理的文件名
+        PRINT, 'Processing file: ' + filename
+        out_name = STRSPLIT(filename,".",/EXTRACT)
+        out_name = out_name[0]
+        
+        header = meta_data(fp,'dat')
+        data_path = header["file name"]
+        ; 读取输入图像
+
+        print,"OpenRaster!"
+        data = e.OpenRaster(data_path)
+        print,"quac!"
+        quac_data = ENVIQUACRaster(data)
+        print,"quac ok!"
+        data.Close
+        print,"origin data close!"
+        
+        ;NDVI
+        result = ENVISpectralIndexRaster(quac_data,"NDVI") 
+        stauts = putout_data(result,output_dir,out_name,"NDVI"）
+        
+        ;EVI
+        result = ENVISpectralIndexRaster(quac_data,"NDVI") 
+        stauts = putout_data(result,output_dir,out_name,"EVI"）
+        
+        ;fvc
+        threshold = 0.5  ; 设置阈值
+        total_pixels = N_Elements(quac_data)  ; 总像素数量
+        ; 找到满足条件(NDVI值大于阈值）的像素数量
+        vegetation_pixels = Where(quac_data GT threshold, count)
+        ; 计算植被覆盖度(以百分比表示）
+        result = (count / total_pixels) * 100
+        stauts = putout_data(result,output_dir,out_name,"FVC）
+
+        
+        
+        red_channel = ENVI_GET_DATA(quac_data, 'B3')
+        nir_channel = envi_read_file(quac_data, 'B4')
+        ; 计算 NDVI
+        ndvi_raster = ndvi(atmos_corr_raster)
+
+        ; 计算植被覆盖度
+        cover_raster = vegetation_cover(ndvi_raster)
+
+        ; 生成植被覆盖度50%的二值图像
+        binary_raster = binary(cover_raster)
+
+        ; 修改元数据信息
+        meta_data = GET_RASTER_METADATA(data_path)
+        meta_data.binary_raster = 1
+        meta_data.binary_threshold = 0.5
+
+        ; 显示结果
+        TVSCL, binary_raster
+
+        ; 保存二值图像和元数据
+        SAVE_RASTER, output_folder + 'binary_' + filename, binary_raster, /FLOAT, $
+            metadata=meta_data, history='Created by vegetation_enhancement_batch_process'
+
+    ENDFOR
+END
